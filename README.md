@@ -1,1 +1,0 @@
-# meteor.js-openshift-example
