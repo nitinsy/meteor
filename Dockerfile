@@ -19,6 +19,8 @@ RUN npm install -g meteor
 # Copy your Meteor application files to the container
 COPY --chown=1001:1001 . /app/
 
+RUN curl https://install.meteor.com/ | sh
+
 # Install Meteor dependencies
 RUN npm install
 
