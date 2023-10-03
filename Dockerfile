@@ -19,7 +19,7 @@ RUN npm install -g meteor
 COPY . .
 
 # Install Meteor dependencies
-RUN meteor npm install
+RUN npm install
 
 # Build your Meteor app (if needed)
 # RUN meteor build --directory /build
@@ -28,4 +28,4 @@ RUN meteor npm install
 EXPOSE 3000
 
 # Run your Meteor app
-CMD ["meteor", "run"]
+CMD ["npm", "run"]
