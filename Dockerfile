@@ -29,4 +29,4 @@ RUN npm install
 EXPOSE 3000
 
 # Run your Meteor app
-CMD ["npm", "run"]
+CMD ["npm", "start"]
