@@ -7,7 +7,7 @@ ENV NODE_ENV=production \
     PORT=3000
 
 # Create a directory for your Meteor app
-RUN mkdir -p /app
+# RUN mkdir -p /app
 
 # Set the working directory to /app
 WORKDIR /app
