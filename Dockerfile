@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Install Meteor CLI globally
 COPY --chown=1001:1001 package.json /app/
-# RUN npm install -g meteor
+RUN npm install -g meteor
 
 # Copy your Meteor application files to the container
 COPY --chown=1001:1001 . /app/
