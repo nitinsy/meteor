@@ -15,7 +15,7 @@ RUN npm install -g meteor
 # ENV PATH="${PATH}:/path/to/meteor"
 
 # Install Meteor project dependencies
-RUN meteor npm install
+# RUN meteor npm install
 
 # Expose port 3000 for Meteor app
 EXPOSE 3000
