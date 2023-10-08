@@ -9,7 +9,10 @@ WORKDIR /app
 # Copy Meteor project files
 COPY . .
 
-ENV PATH="${PATH}:/path/to/meteor"
+RUN npm install -g meteor
+
+
+# ENV PATH="${PATH}:/path/to/meteor"
 
 # Install Meteor project dependencies
 RUN meteor npm install
