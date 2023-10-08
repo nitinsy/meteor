@@ -2,12 +2,13 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 # Set environment variables (change them as needed)
-ENV NODE_ENV=production \
-    ROOT_URL=http://localhost:3000 \
-    PORT=3000
+ENV NODE_ENV=production 
+    # ROOT_URL=http://localhost:3000 \
+    # PORT=3000
 
-# Create a directory for your Meteor app
-# RUN mkdir -p /app
+USER root
+
+RUN RUN curl https://install.meteor.com/ | sh
 
 # Set the working directory to /app
 WORKDIR /app
