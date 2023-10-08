@@ -12,7 +12,7 @@ COPY . .
 RUN npm install -g meteor
 
 
-# ENV PATH="${PATH}:/path/to/meteor"
+ENV PATH="${PATH}:/path/to/meteor"
 
 # Install Meteor project dependencies
 # RUN meteor npm install
