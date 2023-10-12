@@ -2,7 +2,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 # Elevate privileges to run npm
-# USER root
+USER root
 
 # Install the Meteor tool
 RUN curl https://install.meteor.com/ | sh
