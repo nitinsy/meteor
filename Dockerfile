@@ -7,30 +7,30 @@ USER root
 # Install the Meteor tool
 RUN curl https://install.meteor.com/ | sh
 
-RUN chown -Rh 1001 .meteor/local
+# RUN chown -Rh 1001 .meteor/local
 
 # Copy your Meteor application source code and package files
-COPY --chown=1001:1001 . ./app
-USER 1001
-RUN meteor build
+# COPY --chown=1001:1001 . ./app
+# USER 1001
+# RUN meteor build
 
-# Create a working directory for your Meteor app
-WORKDIR /app/build
-
-
-# Install app dependencies
-# RUN npm install
-
-# Change owner of application files to a non-root user
-# RUN chown -R 1001:0 /app
-
-# Restore default user privileges
+# # Create a working directory for your Meteor app
+# WORKDIR /app/build
 
 
-EXPOSE 3000
+# # Install app dependencies
+# # RUN npm install
 
-# Run your Meteor application in 'development' mode
-CMD ["meteor", "run"]
+# # Change owner of application files to a non-root user
+# # RUN chown -R 1001:0 /app
+
+# # Restore default user privileges
+
+
+# EXPOSE 3000
+
+# # Run your Meteor application in 'development' mode
+CMD ["meteor"]
 
 
 # Install the application dependencies in a full UBI Node docker image
