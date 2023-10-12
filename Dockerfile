@@ -7,9 +7,11 @@ USER root
 # Install the Meteor tool
 RUN curl https://install.meteor.com/ | sh
 
+RUN chown -Rh 1001 .meteor/local
+
 # Copy your Meteor application source code and package files
 COPY --chown=1001:1001 . ./app
-
+USER 1001
 RUN meteor build
 
 # Create a working directory for your Meteor app
@@ -23,7 +25,7 @@ WORKDIR /app/build
 # RUN chown -R 1001:0 /app
 
 # Restore default user privileges
-USER 1001
+
 
 EXPOSE 3000
 
