@@ -12,15 +12,15 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the dependencies into a minimal Node.js image
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest AS final
+# FROM registry.access.redhat.com/ubi8/nodejs-18:latest AS final
 
 # Install app dependencies
-COPY --from=base /opt/app-root/src/node_modules /opt/app-root/src/node_modules
-COPY . /opt/app-root/src
+# COPY --from=base /opt/app-root/src/node_modules /opt/app-root/src/node_modules
+COPY . ./
 
 # Elevate privileges to change owner of source files
 # USER root
-RUN chown -R 1001:0 /opt/app-root/src
+RUN chown -R 1001:0 ./
 
 RUN curl https://install.meteor.com/ | sh
 
