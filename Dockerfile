@@ -6,7 +6,7 @@ WORKDIR /project
 USER root
 
 # Copy package.json and package-lock.json
-COPY package*.json /project
+COPY package*.json ./
 
 
 # Install app dependencies
@@ -17,11 +17,11 @@ RUN npm install
 
 # Install app dependencies
 # COPY --from=base /opt/app-root/src/node_modules /opt/app-root/src/node_modules
-COPY . /project
+COPY . .
 
 # Elevate privileges to change owner of source files
 # USER root
-RUN chown -R 1001:0 . /project
+RUN chown -R 1001:0 . .
 
 RUN curl https://install.meteor.com/ | sh
 
