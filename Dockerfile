@@ -21,6 +21,8 @@ COPY . /opt/app-root/src
 USER root
 RUN chown -R 1001:0 /opt/app-root/src
 
+RUN dnf install tar gzip -y
+
 RUN curl https://install.meteor.com/ | sh
 
 # Restore default user privileges
