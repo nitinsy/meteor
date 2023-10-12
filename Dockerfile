@@ -1,6 +1,7 @@
 # Use a base image with Node.js and Meteor
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
+WORKDIR /app
 # Elevate privileges to run npm
 USER root
 
@@ -10,12 +11,12 @@ RUN curl https://install.meteor.com/ | sh
 # RUN chown -Rh 1001 .meteor/local
 
 # Copy your Meteor application source code and package files
-# COPY --chown=1001:1001 . ./app
+COPY --chown=1001:1001 . ./app
 # USER 1001
 # RUN meteor build
 
 # # Create a working directory for your Meteor app
-# WORKDIR /app/build
+
 
 
 # # Install app dependencies
