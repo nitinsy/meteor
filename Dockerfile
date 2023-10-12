@@ -1,5 +1,5 @@
 # Install the application dependencies in a full UBI Node docker image
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest AS base
+FROM registry.access.redhat.com/ubi8/nodejs-18:latest 
 
 WORKDIR /project
 # Elevate privileges to run npm
