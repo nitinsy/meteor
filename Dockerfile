@@ -1,29 +1,34 @@
 # Use a base image with Node.js and Meteor
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
-# Create a working directory for your Meteor app
-WORKDIR /app
-
 # Elevate privileges to run npm
-USER root
+# USER root
 
 # Install the Meteor tool
 RUN curl https://install.meteor.com/ | sh
 
 # Copy your Meteor application source code and package files
-COPY . .
+COPY --chown=1001:1001 . ./app
+
+RUN meteor build
+
+# Create a working directory for your Meteor app
+WORKDIR /app/build
+
 
 # Install app dependencies
-RUN npm install
+# RUN npm install
 
 # Change owner of application files to a non-root user
-RUN chown -R 1001:0 /app
+# RUN chown -R 1001:0 /app
 
 # Restore default user privileges
 USER 1001
 
+EXPOSE 3000
+
 # Run your Meteor application in 'development' mode
-CMD ["meteor", "run", "--port", "3000"]
+CMD ["meteor", "run"]
 
 
 # Install the application dependencies in a full UBI Node docker image
