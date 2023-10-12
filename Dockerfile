@@ -39,7 +39,7 @@ EXPOSE 3000
 
 # Start node process
 # CMD ["pwd", "&&", "ls"]
-CMD ["cd", "project", "&&", "meteor", "run"]
+CMD ["meteor", "run"]
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 # # Install Meteor
