@@ -1,11 +1,12 @@
 # Install the application dependencies in a full UBI Node docker image
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest AS base
 
+WORKDIR /project
 # Elevate privileges to run npm
 USER root
 
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY package*.json /project
 
 
 # Install app dependencies
@@ -16,11 +17,11 @@ RUN npm install
 
 # Install app dependencies
 # COPY --from=base /opt/app-root/src/node_modules /opt/app-root/src/node_modules
-COPY . ./
+COPY . /project
 
 # Elevate privileges to change owner of source files
 # USER root
-RUN chown -R 1001:0 ./
+RUN chown -R 1001:0 . /project
 
 RUN curl https://install.meteor.com/ | sh
 
