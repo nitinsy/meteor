@@ -7,6 +7,8 @@ USER root
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
+RUN curl https://install.meteor.com/ | sh
+
 # Install app dependencies
 RUN npm install
 
@@ -20,10 +22,6 @@ COPY . /opt/app-root/src
 # Elevate privileges to change owner of source files
 USER root
 RUN chown -R 1001:0 /opt/app-root/src
-
-RUN dnf install tar gzip -y
-
-RUN curl https://install.meteor.com/ | sh
 
 # Restore default user privileges
 USER 1001
