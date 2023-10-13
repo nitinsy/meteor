@@ -3,6 +3,9 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 # Install Meteor
 RUN curl -L https://install.meteor.com | sh
 
+# Add the Meteor CLI directory to the PATH environment variable
+ENV PATH="/usr/local/bin:${PATH}"
+
 # Copy the Meteor application source code
 COPY . /app
 
