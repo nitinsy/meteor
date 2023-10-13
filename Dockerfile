@@ -1,14 +1,19 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
+USER root
 # Install Meteor
-RUN npm install -g meteor
+RUN curl -L https://install.meteor.com | sh
 
+# Add the Meteor CLI directory to the PATH environment variable
+ENV export PATH="/usr/local/bin:$PATH"
 
 # Copy the Meteor application source code
 COPY . /app
 
 # Build the Meteor application
 RUN meteor build
+
+RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
 
 # Set the working directory to the Meteor application build directory
 WORKDIR /app/build
@@ -18,6 +23,7 @@ EXPOSE 3000
 
 # Start the Meteor application
 CMD ["meteor", "run"]
+
 
 
 
