@@ -107,7 +107,7 @@ RUN curl -L https://install.meteor.com | /bin/sh
 COPY package*.json ./
 
 # Install npm production packages 
-RUN npm install --production
+RUN npm install
 
 COPY . /opt/app-root/src
 
