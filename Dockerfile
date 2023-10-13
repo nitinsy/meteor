@@ -1,32 +1,32 @@
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest
+# FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
-# USER root
-# Install Meteor
-ENV METEOR_ALLOW_SUPERUSER=1
-RUN curl -L https://install.meteor.com | /bin/sh
+# # USER root
+# # Install Meteor
+# ENV METEOR_ALLOW_SUPERUSER=1
+# RUN curl -L https://install.meteor.com | /bin/sh
 
-# Add the Meteor CLI directory to the PATH environment variable
-# ENV export PATH="/usr/local/bin:$PATH"
+# # Add the Meteor CLI directory to the PATH environment variable
+# # ENV export PATH="/usr/local/bin:$PATH"
 
-ENV PATH=$PATH:/root/.meteor
+# ENV PATH=$PATH:/root/.meteor
 
 
-# Copy the Meteor application source code
-COPY . /app
+# # Copy the Meteor application source code
+# COPY . /app
 
-# Build the Meteor application
-RUN npm install
+# # Build the Meteor application
+# RUN npm install
 
-# RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
+# # RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
 
-# Set the working directory to the Meteor application build directory
-# WORKDIR /app/build
+# # Set the working directory to the Meteor application build directory
+# # WORKDIR /app/build
 
-# Expose the Meteor application port
-EXPOSE 3000
+# # Expose the Meteor application port
+# EXPOSE 3000
 
-# Start the Meteor application
-CMD ["meteor", "run"]
+# # Start the Meteor application
+# CMD ["meteor", "run"]
 
 
 
@@ -99,38 +99,21 @@ CMD ["meteor", "run"]
 # CMD ["meteor", "run"]
 
 
-# # Use the UBI 8 as the base image
-# FROM registry.access.redhat.com/ubi8/nodejs-18:latest
+FROM registry.access.redhat.com/ubi8/nodejs-16:latest
 
-# # Set environment variables (change them as needed)
-# # ENV NODE_ENV=production 
-#     # ROOT_URL=http://localhost:3000 \
-#     # PORT=3000
+ RUN curl -L https://install.meteor.com | /bin/sh
+ 
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
-# USER root
+# Install npm production packages 
+RUN npm install --production
 
-# RUN RUN curl https://install.meteor.com/ | sh
+COPY . /opt/app-root/src
 
-# # Set the working directory to /app
-# WORKDIR /app
+ENV NODE_ENV production
+ENV PORT 3000
 
-# # Install Meteor CLI globally
-# COPY --chown=1001:1001 package.json /app/
-# RUN npm install -g meteor
+EXPOSE 3000
 
-# # Copy your Meteor application files to the container
-# COPY --chown=1001:1001 . /app/
-
-# # RUN curl https://install.meteor.com/ | sh
-
-# # Install Meteor dependencies
-# RUN npm install
-
-# # Build your Meteor app (if needed)
-# # RUN meteor build --directory /build
-
-# # Expose the port your Meteor app will run on
-# EXPOSE 3000
-
-# # Run your Meteor app
-# CMD ["npm", "start"]
+CMD ["npm", "start"]
