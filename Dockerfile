@@ -101,7 +101,7 @@
 
 FROM registry.access.redhat.com/ubi8/nodejs-16:latest
 
- RUN curl -L https://install.meteor.com | /bin/sh
+RUN curl -L https://install.meteor.com | /bin/sh
  
 # Copy package.json and package-lock.json
 COPY package*.json ./
