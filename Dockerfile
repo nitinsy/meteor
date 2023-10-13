@@ -104,7 +104,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 RUN curl -L https://install.meteor.com | /bin/sh
  
 # Copy package.json and package-lock.json
-COPY package*.json ./
+COPY --chown=1001:1001 package*.json ./
 
 # Install npm production packages 
 RUN npm install
