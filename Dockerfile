@@ -99,7 +99,7 @@
 # CMD ["meteor", "run"]
 
 
-FROM registry.access.redhat.com/ubi8/nodejs-16:latest
+FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 RUN curl -L https://install.meteor.com | /bin/sh
  
