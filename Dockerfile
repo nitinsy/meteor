@@ -1,14 +1,19 @@
-FROM node:18.12.1-alpine
+FROM node:18.12.1
+
+RUN curl https://install.meteor.com/ | sh
 
 WORKDIR /app
-
 COPY . .
 
-RUN npm install -g meteor-cli
+RUN meteor npm install
+RUN meteor build --directory . --server-only
 
-CMD ["node", "server/main.js"]
+WORKDIR /app/bundle/programs/server
+RUN npm install
 
-EXPOSE 3000
+ENV PORT=3000
+
+CMD ["node", "main.js"]
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
