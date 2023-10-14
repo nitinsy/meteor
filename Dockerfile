@@ -16,7 +16,7 @@ COPY . .
 WORKDIR /app/bundle/programs/server
 RUN npm install
 
-USER node
+VOLUME ["//.meteor-install-tmp"]
 
 ENV PORT=3000
 
