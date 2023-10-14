@@ -1,3 +1,15 @@
+FROM node:18.12.1-alpine
+
+WORKDIR /app
+
+COPY . .
+
+RUN meteor npm install
+
+CMD ["node", "server/main.js"]
+
+EXPOSE 3000
+
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 # # USER root
@@ -119,18 +131,18 @@
 # CMD ["npm", "start"]
 
 # Dockerfile
-FROM node:latest
+# FROM node:latest
 
-ENV METEOR_ALLOW_SUPERUSER=true
-ENV ROOT_URL="http://localhost:3000"
+# ENV METEOR_ALLOW_SUPERUSER=true
+# ENV ROOT_URL="http://localhost:3000"
 
-RUN curl https://install.meteor.com/ -k | sh
+# RUN curl https://install.meteor.com/ -k | sh
 
-COPY . /usr/src/app
-WORKDIR /usr/src/app
+# COPY . /usr/src/app
+# WORKDIR /usr/src/app
 
-RUN chmod -R 700 /usr/src/app/.meteor/local
-RUN meteor npm install
+# RUN chmod -R 700 /usr/src/app/.meteor/local
+# RUN meteor npm install
 
-EXPOSE 3000
-CMD ["npm", "start"]
+# EXPOSE 3000
+# CMD ["npm", "start"]
