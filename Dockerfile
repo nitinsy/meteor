@@ -7,11 +7,11 @@ RUN curl https://install.meteor.com/ | sh
 WORKDIR /app
 COPY . .
 
-RUN meteor npm install
+# RUN meteor npm install
 
-USER root
+# USER root
 
-RUN meteor build --directory . --server-only
+# RUN meteor build --directory . --server-only
 
 WORKDIR /app/bundle/programs/server
 RUN npm install
@@ -20,7 +20,7 @@ USER node
 
 ENV PORT=3000
 
-CMD ["node", "server/main.js"]
+CMD ["npm", "start"]
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
