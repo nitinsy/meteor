@@ -8,6 +8,9 @@ WORKDIR /app
 COPY . .
 
 RUN meteor npm install
+RUN meteor build 
+
+
 # RUN meteor build --directory . --server-only
 
 WORKDIR /app/bundle/programs/server
