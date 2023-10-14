@@ -1,5 +1,7 @@
 FROM node:18.12.1
 
+ENV METEOR_ALLOW_SUPERUSER=1
+
 RUN curl https://install.meteor.com/ | sh
 
 WORKDIR /app
