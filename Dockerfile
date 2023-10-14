@@ -99,21 +99,38 @@
 # CMD ["meteor", "run"]
 
 
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest
+# FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
-RUN curl -L https://install.meteor.com | /bin/sh
+# RUN curl -L https://install.meteor.com | /bin/sh
  
-# Copy package.json and package-lock.json
-COPY --chown=1001:1001 package*.json ./
+# # Copy package.json and package-lock.json
+# COPY --chown=1001:1001 package*.json ./
 
-# Install npm production packages 
-RUN npm install
+# # Install npm production packages 
+# RUN npm install
 
-COPY . /opt/app-root/src
+# COPY . /opt/app-root/src
 
-ENV NODE_ENV production
-ENV PORT 3000
+# ENV NODE_ENV production
+# ENV PORT 3000
+
+# EXPOSE 3000
+
+# CMD ["npm", "start"]
+
+# Dockerfile
+FROM node:latest
+
+ENV METEOR_ALLOW_SUPERUSER=true
+ENV ROOT_URL="http://localhost:3000"
+
+RUN curl "https://install.meteor.com/" | sh
+
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+RUN chmod -R 700 /usr/src/app/.meteor/local
+RUN meteor npm install
 
 EXPOSE 3000
-
 CMD ["npm", "start"]
