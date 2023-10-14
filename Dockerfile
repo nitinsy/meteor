@@ -15,7 +15,7 @@ RUN npm install
 
 ENV PORT=3000
 
-CMD ["node", "main.js"]
+CMD ["node", "server/main.js"]
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
