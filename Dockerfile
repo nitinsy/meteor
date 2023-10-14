@@ -18,6 +18,8 @@ RUN npm install
 
 ENV PORT=3000
 
+VOLUME ["//.meteor-install-tmp"]
+
 CMD ["npm", "start"]
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
