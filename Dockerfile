@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN meteor npm install
+RUN npm install -g meteor-cli
 
 CMD ["node", "server/main.js"]
 
