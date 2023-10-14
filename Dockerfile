@@ -8,13 +8,15 @@ WORKDIR /app
 COPY . .
 
 RUN meteor npm install
-RUN meteor build 
 
+USER root
 
-# RUN meteor build --directory . --server-only
+RUN meteor build --directory . --server-only
 
 WORKDIR /app/bundle/programs/server
 RUN npm install
+
+USER node
 
 ENV PORT=3000
 
