@@ -124,7 +124,7 @@ FROM node:latest
 ENV METEOR_ALLOW_SUPERUSER=true
 ENV ROOT_URL="http://localhost:3000"
 
-RUN curl "https://install.meteor.com/" | sh
+RUN curl https://install.meteor.com/ -k | sh
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
