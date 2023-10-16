@@ -2,7 +2,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 ENV METEOR_ALLOW_SUPERUSER=1
 
-RUN --mount curl https://install.meteor.com/ | sh
+RUN curl -sL https://install.meteor.com | sh
 
 WORKDIR /app
 COPY  --chown=1001:1001 . .
