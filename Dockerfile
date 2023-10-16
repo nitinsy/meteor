@@ -1,4 +1,4 @@
-FROM node:18.12.1
+FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 ENV METEOR_ALLOW_SUPERUSER=1
 
