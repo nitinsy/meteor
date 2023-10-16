@@ -5,7 +5,7 @@ ENV METEOR_ALLOW_SUPERUSER=1
 RUN curl https://install.meteor.com/ | sh
 
 WORKDIR /app
-COPY  --chown=node:node . .
+COPY  --chown=1001:1001 . .
 
 # RUN meteor npm install
 
