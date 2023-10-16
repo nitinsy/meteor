@@ -19,6 +19,7 @@ RUN npm install
 ENV PORT=3000
 
 VOLUME ["/.npm/_logs"]
+VOLUME ["//.meteor-install-tmp"]
 
 CMD ["npm", "start"]
 
