@@ -1,17 +1,12 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
-
-
-ENV METEOR_ALLOW_SUPERUSER=1
+USER root
 
 RUN curl -sL https://install.meteor.com | sh
 
 # RUN cp /root/.local/bin/meteor /usr/bin/container-entrypoint
 
 # USER 1001
-
-# USER root
-
 
 
 COPY  package.json package-lock.json ./
@@ -21,7 +16,7 @@ RUN meteor npm install --production
 
 COPY . .
 
-RUN meteor install
+RUN meteor install  --allow-superuser
 
 CMD ["meteor"]
 
