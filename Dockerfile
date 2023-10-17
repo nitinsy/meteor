@@ -1,5 +1,7 @@
 FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
+USER root
+
 RUN curl -sL https://install.meteor.com | sh
 
 CMD ["meteor"]
