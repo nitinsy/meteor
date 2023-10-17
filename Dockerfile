@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs:18-1.1
+FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 RUN curl -sL https://install.meteor.com | sh
 
