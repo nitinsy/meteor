@@ -2,6 +2,8 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 USER root
 
+ENV METEOR_ALLOW_SUPERUSER=1
+
 RUN curl -sL https://install.meteor.com | sh
 
 # RUN cp /root/.local/bin/meteor /usr/bin/container-entrypoint
@@ -15,8 +17,6 @@ RUN meteor npm install --production
 # RUN meteor build
 
 COPY . .
-
-# RUN --user root chown -R root:root ~/.meteor
 
 RUN meteor install
 
