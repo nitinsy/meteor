@@ -16,8 +16,9 @@ RUN meteor npm install --production
 
 COPY . .
 
-RUN meteor install
+VOLUME [".meteor/local"]
 
+RUN meteor install
 
 CMD ["meteor"]
 
