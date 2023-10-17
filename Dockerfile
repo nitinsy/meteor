@@ -4,7 +4,14 @@ USER root
 
 RUN curl -sL https://install.meteor.com | sh
 
-CMD ["meteor"]
+COPY --chown=1001:1001 package.json package-lock.json ./
+
+RUN meteor npm install --production
+RUN meteor build
+
+COPY . .
+
+CMD ["meteor", "run"]
 
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
