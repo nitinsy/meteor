@@ -8,12 +8,16 @@ RUN curl -sL https://install.meteor.com | sh
 
 # USER 1001
 
+
 COPY --chown=1001:1001 package.json package-lock.json ./
 
 RUN meteor npm install --production
 # RUN meteor build
 
 COPY . .
+
+RUN meteor install
+
 
 CMD ["meteor"]
 
