@@ -11,11 +11,11 @@ USER 1001
 COPY --chown=1001:1001 package.json package-lock.json ./
 
 RUN meteor npm install --production
-RUN meteor build
+# RUN meteor build
 
 COPY . .
 
-CMD ["meteor", "run"]
+CMD ["meteor"]
 
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
