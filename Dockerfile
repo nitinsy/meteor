@@ -1,27 +1,34 @@
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest
-
-ENV METEOR_ALLOW_SUPERUSER=1
+FROM registry.access.redhat.com/ubi8/nodejs:18-1.1
 
 RUN curl -sL https://install.meteor.com | sh
 
-WORKDIR /app
-COPY  --chown=1001:1001 . .
+CMD ["meteor"]
 
-# RUN meteor npm install
 
-# USER root
+# FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
-# RUN meteor build --directory . --server-only
+# ENV METEOR_ALLOW_SUPERUSER=1
 
-WORKDIR /app/bundle/programs/server
-RUN npm install
+# RUN curl -sL https://install.meteor.com | sh
 
-ENV PORT=3000
+# WORKDIR /app
+# COPY  --chown=1001:1001 . .
 
-VOLUME ["/.npm/_logs"]
-VOLUME ["//.meteor-install-tmp"]
+# # RUN meteor npm install
 
-CMD ["npm", "start"]
+# # USER root
+
+# # RUN meteor build --directory . --server-only
+
+# WORKDIR /app/bundle/programs/server
+# RUN npm install
+
+# ENV PORT=3000
+
+# VOLUME ["/.npm/_logs"]
+# VOLUME ["//.meteor-install-tmp"]
+
+# CMD ["npm", "start"]
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
