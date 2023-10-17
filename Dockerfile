@@ -16,7 +16,7 @@ RUN meteor npm install --production
 
 COPY . .
 
-RUN --user root chown -R root:root ~/.meteor
+# RUN --user root chown -R root:root ~/.meteor
 
 RUN meteor install
 
