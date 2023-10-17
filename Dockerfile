@@ -4,9 +4,9 @@ USER root
 
 RUN curl -sL https://install.meteor.com | sh
 
-RUN cp /root/.local/bin/meteor /usr/bin/container-entrypoint
+# RUN cp /root/.local/bin/meteor /usr/bin/container-entrypoint
 
-USER 1001
+# USER 1001
 
 COPY --chown=1001:1001 package.json package-lock.json ./
 
