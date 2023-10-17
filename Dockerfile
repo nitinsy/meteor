@@ -2,8 +2,6 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 USER root
 
-ARG METEOR_NO_RELEASE_CHECK=true
-
 RUN curl -sL https://install.meteor.com | sh
 
 # RUN cp /root/.local/bin/meteor /usr/bin/container-entrypoint
@@ -18,8 +16,7 @@ RUN meteor npm install --production
 
 COPY . .
 
-
-# VOLUME [".meteor/local"]
+RUN --user root chown -R root:root ~/.meteor
 
 RUN meteor install
 
