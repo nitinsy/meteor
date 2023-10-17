@@ -20,7 +20,9 @@ RUN meteor npm install --production
 
 COPY . .
 
-RUN meteor install  --allow-superuser
+USER 1001
+
+RUN meteor install  
 
 CMD ["meteor"]
 
