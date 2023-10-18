@@ -22,7 +22,7 @@ COPY . .
 
 # USER 1001
 
-# RUN chmod +x /opt/app-root/src/.meteor/meteor
+RUN chmod +x /opt/app-root/src/.meteor/meteor
 
 CMD ["meteor"]
 
