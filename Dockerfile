@@ -22,7 +22,7 @@ COPY . .
 
 USER 1001
 
-RUN RUN meteor build --directory .
+# RUN RUN meteor build --directory .
 
 CMD ["meteor"]
 
