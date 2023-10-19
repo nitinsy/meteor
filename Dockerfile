@@ -19,13 +19,13 @@ COPY  package.json package-lock.json ./
 RUN meteor npm install --production
 # RUN meteor build
 
-RUN chmod 777 .meteor/meteor
+# RUN chmod 777 .meteor/meteor
 
 COPY . .
 
-USER 1001
+# USER 1001
 
-CMD ["meteor"]
+CMD ["meteor", "--allow-superuser"]
 
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
