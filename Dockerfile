@@ -19,7 +19,7 @@ COPY  package.json package-lock.json ./
 RUN meteor npm install --production
 # RUN meteor build
 #
-RUN chmod 777 /opt/app-root/src/.meteor/meteor
+RUN chmod 777 /usr/bin/meteor
 
 COPY . .
 
