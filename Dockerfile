@@ -25,7 +25,7 @@ COPY . .
 
 # USER 1001
 
-CMD ["which", "meteor"]
+CMD ["meteor"]
 
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
