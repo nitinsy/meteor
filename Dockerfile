@@ -12,14 +12,14 @@ RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64
 
 # USER 1001
 
-RUN chmod +x /opt/app-root/src/.meteor/meteor
+# RUN chmod +x /opt/app-root/src/.meteor/meteor
 
 COPY  package.json package-lock.json ./
 
 RUN meteor npm install --production
 # RUN meteor build
-
-# RUN chmod 777 .meteor/meteor
+#
+RUN chmod 777 /opt/app-root/src/.meteor/meteor
 
 COPY . .
 
