@@ -1,56 +1,56 @@
-# Import the base image as UBI-Nodejs 18 image
-FROM registry.access.redhat.com/ubi8/nodejs-18:1-71.1695741533
+# # Import the base image as UBI-Nodejs 18 image
+# FROM registry.access.redhat.com/ubi8/nodejs-18:1-71.1695741533
 
-# Set the working directory to /project
-WORKDIR /project
+# # Set the working directory to /project
+# WORKDIR /project
 
-# Copy package files in container currunt direcctory
-COPY --chown=1001:1001 package.json package-lock.json ./
+# # Copy package files in container currunt direcctory
+# COPY --chown=1001:1001 package.json package-lock.json ./
 
 
-# Install all Angular dependacies
-RUN npm ci
+# # Install all Angular dependacies
+# RUN npm ci
 
-# Add application files in container 
-COPY --chown=1001:1001 . .
+# # Add application files in container 
+# COPY --chown=1001:1001 . .
 
-# # Set permision of .angular file in container
-# VOLUME ["/project/.angular"]
+# # # Set permision of .angular file in container
+# # VOLUME ["/project/.angular"]
 
-# Open port to allow traffic in container
-EXPOSE 3000
+# # Open port to allow traffic in container
+# EXPOSE 3000
 
-# Run start script using npm command
-CMD ["node", "server/main.js"]
+# # Run start script using npm command
+# CMD ["node", "server/main.js"]
 # #######################################################################
-# FROM registry.access.redhat.com/ubi8/nodejs-18:latest
-
-# # USER root
-
-# ENV PATH=$PATH:$HOME/.meteor
-
-# RUN curl -sL https://install.meteor.com | sh
+FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 # USER root
 
-# RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
+ENV PATH=$PATH:$HOME/.meteor
 
-# # USER 1001
+RUN curl -sL https://install.meteor.com | sh
 
-# # RUN chmod +x /opt/app-root/src/.meteor/meteor
+USER root
 
-# COPY  package.json package-lock.json ./
+RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
 
-# RUN meteor npm install --production
-# # RUN meteor build
-# #
-# RUN chmod 777 /usr/bin/meteor
+# USER 1001
 
-# COPY . .
+# RUN chmod +x /opt/app-root/src/.meteor/meteor
 
-# # USER 1001
+COPY  package.json package-lock.json ./
 
-# CMD ["meteor"]
+RUN meteor npm install --production
+# RUN meteor build
+#
+RUN chmod 777 /usr/bin/meteor
+
+COPY . .
+
+# USER 1001
+
+CMD ["meteor"]
 ###############################################################
 
 # FROM registry.access.redhat.com/ubi8/nodejs-18:latest
