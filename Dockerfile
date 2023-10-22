@@ -18,7 +18,7 @@ USER 1001
 
 COPY  package.json package-lock.json ./
 
-COPY --chown=1001:1001 ./meteor ./
+COPY --chown=1001:1001 .meteor ./
 
 # RUN meteor npm? install --production
 RUN meteor npm 
