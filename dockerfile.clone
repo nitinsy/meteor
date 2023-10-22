@@ -1,9 +1,7 @@
-FROM registry.access.redhat.com/ubi8/nodejs-18:latest
+FROM node:18
 
 ENV METEOR_ALLOW_SUPERUSER=true
 ENV ROOT_URL="http://localhost:3000"
-
-USER root
 
 RUN curl "https://install.meteor.com/" | sh
 
