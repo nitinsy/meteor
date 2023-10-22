@@ -35,7 +35,9 @@ USER root
 
 RUN cp "/opt/app-root/src/.meteor/packages/meteor-tool/2.13.3/mt-os.linux.x86_64/scripts/admin/launch-meteor" /usr/bin/meteor
 
-# USER 1001
+RUN chmod 777 /usr/bin/meteor
+
+USER 1001
 
 # RUN chmod +x /opt/app-root/src/.meteor/meteor
 
@@ -44,7 +46,7 @@ COPY  package.json package-lock.json ./
 RUN meteor npm install --production
 # RUN meteor build
 #
-RUN chmod 777 /usr/bin/meteor
+
 
 COPY . .
 
