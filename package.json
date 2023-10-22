@@ -1,7 +1,6 @@
 {
   "name": "simple-meteor",
   "private": true,
-  "type": "module",
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
