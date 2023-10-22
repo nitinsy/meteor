@@ -15,7 +15,7 @@ VOLUME ["/usr/src/app/.meteor/local"]
 RUN chmod -R 700  /usr/src/app/.meteor/local
 RUN meteor npm install
 
-# VOLUME ["/opt/app-root/src/.npm"]
+VOLUME ["/opt/app-root/src/.npm/_cacache"]
 
 EXPOSE 3000
 CMD ["npm", "start"]
