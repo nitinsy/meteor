@@ -10,9 +10,9 @@ RUN curl "https://install.meteor.com/" | sh
 COPY  . /usr/src/app
 WORKDIR /usr/src/app
 
-VOLUME ["/usr/src/app/.meteor/local"]
+# VOLUME ["/usr/src/app/.meteor/local"]
 
-RUN chmod -R 700 /usr/src/app/.meteor/local
+RUN chmod -R 700 "/usr/src/app/.meteor/local"
 RUN meteor npm install
 
 RUN chown -R 1007790000:0 "/opt/app-root/src/.npm"
