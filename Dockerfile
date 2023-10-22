@@ -15,7 +15,7 @@ VOLUME ["/usr/src/app/.meteor/local"]
 RUN chmod -R 700 /usr/src/app/.meteor/local
 RUN meteor npm install
 
-RUN chown -R root:root "/opt/app-root/src/.npm
+RUN chown -R root:root "/opt/app-root/src/.npm"
 
 EXPOSE 3000
 CMD ["npm", "start"]
