@@ -7,10 +7,12 @@ USER root
 
 RUN curl "https://install.meteor.com/" | sh
 
-COPY  .  /opt/app-root/app
-WORKDIR  /opt/app-root/app
+COPY  .  /usr/src/app
+WORKDIR  /usr/src/app
 
-RUN chmod -R 700  /opt/app-root/app/.meteor/local
+VOLUME ["/usr/src/.meteor/local"]
+
+RUN chmod -R 700  /usr/src/.meteor/local
 RUN meteor npm install
 
 EXPOSE 3000
