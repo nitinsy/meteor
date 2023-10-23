@@ -21,7 +21,7 @@ VOLUME ["/opt/app-root/src/.npm/_cacache/tmp"]
 
 USER root
 RUN chmod 777 /app/.meteor/local/
-
+USER 1001 
 EXPOSE 3000
 
 CMD ["npm", "start"]
