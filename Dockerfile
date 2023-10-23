@@ -28,6 +28,7 @@ VOLUME ["/opt/app-root/src/.meteor/packages/caching-html-compiler"]
 VOLUME ["/opt/app-root/src/.meteor/packages/mongo-decimal"]
 VOLUME ["/opt/app-root/src/.meteor/packages/htmljs"]
 VOLUME ["/opt/app-root/src/.meteor/packages/blaze-tools"]
+VOLUME ["/opt/app-root/src/.meteor/packages/meteor-tool"]
 EXPOSE 3000
 
 CMD ["npm", "start"]
