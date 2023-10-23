@@ -17,14 +17,14 @@ RUN meteor npm install
 
 RUN  npm cache clean --force 
 
-VOLUME ["/opt/app-root/src/.npm/_cacache"]
+# VOLUME ["/opt/app-root/src/.npm/_cacache"]
 
 USER root
 RUN chmod 777 /app/.meteor/local/
 RUN chmod -R 777 /opt/app-root/src/.npm/
 USER 1001 
 
-VOLUME ["/opt/app-root/src/.npm/_cacache"]
+# VOLUME ["/opt/app-root/src/.npm/_cacache"]
 EXPOSE 3000
 
 CMD ["npm", "start"]
