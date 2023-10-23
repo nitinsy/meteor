@@ -15,6 +15,7 @@ RUN curl https://install.meteor.com/ | sh
 # Build the Meteor app
 RUN meteor npm install
 
+RUN  npm cache clean --force 
 
 EXPOSE 3000
 
