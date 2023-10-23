@@ -9,7 +9,7 @@ USER root
 RUN curl "https://install.meteor.com/" | sh
 RUN chmod 777 /usr/local/bin/meteor
 
-RUN  npm cache clean --force 
+# RUN  npm cache clean --force 
 # RUN chown -R 1001:1001 /opt/app-root/src/.npm
 
 USER 1001 
