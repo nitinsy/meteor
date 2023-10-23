@@ -18,22 +18,22 @@ RUN meteor npm install
 RUN  npm cache clean --force 
 
 # VOLUME ["/opt/app-root/src/.npm/_cacache"]
-VOLUME ["/opt/app-root/src/.meteor/packages/"]
+# VOLUME ["/opt/app-root/src/.meteor/packages/"]
 
 USER root
-RUN chmod -R 777 /opt/app-root/src/.meteor/packages/
+RUN chmod -R 777 /opt/app-root/src/.meteor/
 RUN chmod -R 777 /app/.meteor/local
 RUN chmod -R 777 /opt/app-root/src/.npm/
 USER 1001 
 
-# VOLUME ["/opt/app-root/src/.meteor/packages/caching-html-compiler"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/mongo-decimal"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/htmljs"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/blaze-tools"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/meteor-tool"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/templating-tools"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/html-tools"]
-# VOLUME ["/opt/app-root/src/.meteor/packages/react-meteor-data'"]
+VOLUME ["/opt/app-root/src/.meteor/packages/caching-html-compiler"]
+VOLUME ["/opt/app-root/src/.meteor/packages/mongo-decimal"]
+VOLUME ["/opt/app-root/src/.meteor/packages/htmljs"]
+VOLUME ["/opt/app-root/src/.meteor/packages/blaze-tools"]
+VOLUME ["/opt/app-root/src/.meteor/packages/meteor-tool"]
+VOLUME ["/opt/app-root/src/.meteor/packages/templating-tools"]
+VOLUME ["/opt/app-root/src/.meteor/packages/html-tools"]
+VOLUME ["/opt/app-root/src/.meteor/packages/react-meteor-data'"]
 EXPOSE 3000
 
 CMD ["npm", "start"]
