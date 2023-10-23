@@ -8,7 +8,8 @@ USER root
 RUN curl "https://install.meteor.com/" | sh
 COPY package.json package-lock.json ./
 RUN meteor npm install
-RUN chmod -R 777 /usr/src/app/.meteor/local
+# RUN chmod -R 777 /usr/src/app/.meteor/local
+RUN chmod 777 /usr/local/bin/meteor
 
 USER 1001 
 
