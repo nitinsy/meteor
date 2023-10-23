@@ -17,6 +17,8 @@ RUN meteor npm install
 
 RUN  npm cache clean --force 
 
+VOLUME ["/opt/app-root/src/.npm/_cacache"]
+
 EXPOSE 3000
 
 CMD ["npm", "start"]
