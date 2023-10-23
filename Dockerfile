@@ -6,8 +6,11 @@ WORKDIR /app
 # Copy the Meteor app source code to the container
 COPY . .
 
+ENV PATH=$PATH:$HOME/.meteor
+
 # Install Meteor
 RUN curl https://install.meteor.com/ | sh
+
 
 # Build the Meteor app
 RUN meteor npm install
