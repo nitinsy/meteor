@@ -14,6 +14,8 @@ COPY --chown=1001:1001 . /usr/src/app
 RUN meteor npm cache clean --force
 RUN meteor npm install
 
+ VOLUME ["/opt/app-root/src/.npm/_cacache/tmp/"]
+
 EXPOSE 3000
 
 CMD ["npm", "start"]
