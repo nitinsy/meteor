@@ -21,6 +21,7 @@ RUN  npm cache clean --force
 
 USER root
 RUN chmod -R 777 /app/.meteor/packages
+RUN chmod -R 777 /app/.meteor/local
 RUN chmod -R 777 /opt/app-root/src/.npm/
 USER 1001 
 
