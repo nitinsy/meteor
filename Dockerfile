@@ -9,7 +9,7 @@ RUN curl "https://install.meteor.com/" | sh
 RUN chmod 777 /usr/local/bin/meteor
 
 USER 1001 
-
+COPY  --chown=1001:1001 package.json package-lock.json ./
 COPY --chown=1001:1001 . /usr/src/app
 RUN meteor npm cache clean --force
 RUN meteor npm install
