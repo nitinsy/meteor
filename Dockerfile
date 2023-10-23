@@ -19,7 +19,7 @@ COPY --chown=1001:1001 . /usr/src/app
 # WORKDIR /usr/src/app
 
 EXPOSE 3000
-VOLUME ["
+# VOLUME ["
 CMD ["npm", "start"]
 
 
