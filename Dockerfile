@@ -17,7 +17,7 @@ RUN meteor npm install
 
 RUN  npm cache clean --force 
 
-VOLUME ["/opt/app-root/src/.npm/]
+VOLUME ["/opt/app-root/src/.npm/"]
 
 USER root
 RUN chmod 777 /app/.meteor/local/
