@@ -24,7 +24,7 @@ RUN chmod -R 777 /app/.meteor/
 RUN chmod -R 777 /opt/app-root/src/.npm/
 USER 1001 
 
-# VOLUME ["/opt/app-root/src/.meteor/packages/caching-html-compiler"]
+VOLUME ["/opt/app-root/src/.meteor/packages/caching-html-compiler"]
 EXPOSE 3000
 
 CMD ["npm", "start"]
