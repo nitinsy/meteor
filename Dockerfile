@@ -19,6 +19,9 @@ RUN  npm cache clean --force
 
 VOLUME ["/opt/app-root/src/.npm/_cacache"]
 
+USER root
+RUN chmod 777 /app/.meteor/local/
+
 EXPOSE 3000
 
 CMD ["npm", "start"]
