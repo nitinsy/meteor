@@ -4,7 +4,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 WORKDIR /app
 
 # Copy the Meteor app source code to the container
-COPY . .
+COPY --chown=1001:1001 . .
 
 ENV PATH=$PATH:$HOME/.meteor
 
