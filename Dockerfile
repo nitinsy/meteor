@@ -33,6 +33,7 @@ USER 1001
 # VOLUME ["/opt/app-root/src/.meteor/packages/meteor-tool"]
 # VOLUME ["/opt/app-root/src/.meteor/packages/templating-tools"]
 # VOLUME ["/opt/app-root/src/.meteor/packages/html-tools"]
+# VOLUME ["/opt/app-root/src/.meteor/packages/react-meteor-data'"]
 EXPOSE 3000
 
 CMD ["npm", "start"]
