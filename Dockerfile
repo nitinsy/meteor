@@ -6,12 +6,13 @@ ENV ROOT_URL="http://localhost:3000"
 USER root
 
 RUN curl "https://install.meteor.com/" | sh
-
-COPY  . /usr/src/app
-WORKDIR /usr/src/app
-
-# RUN chmod -R 700 /usr/src/app/.meteor/local
 RUN meteor npm install
+RUN chmod -R 777 /usr/src/app/.meteor/local
+
+USER 1001 
+
+COPY --chown=1001:1001 . /usr/src/app
+# WORKDIR /usr/src/app
 
 EXPOSE 3000
 CMD ["npm", "start"]
