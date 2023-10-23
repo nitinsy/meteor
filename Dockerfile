@@ -2,6 +2,7 @@ FROM registry.access.redhat.com/ubi8/nodejs-18:latest
 
 ENV METEOR_ALLOW_SUPERUSER=true
 ENV ROOT_URL="http://localhost:3000"
+ENV NPM_CONFIG_CACHE=/opt/app-root/src/.npm
 
 USER root
 
