@@ -6,6 +6,7 @@ ENV ROOT_URL="http://localhost:3000"
 USER root
 
 RUN curl "https://install.meteor.com/" | sh
+COPY package.json package-lock.json ./
 RUN meteor npm install
 RUN chmod -R 777 /usr/src/app/.meteor/local
 
