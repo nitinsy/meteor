@@ -8,10 +8,11 @@ RUN curl "https://install.meteor.com/" | sh
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 
+USER root
+
 RUN meteor npm install
 
-USER root
-RUN chown -R 1001:0 /usr/src/app
+RUN chown -R 1001:1001 /usr/src/app
 
 USER 1001
 
