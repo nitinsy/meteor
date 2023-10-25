@@ -14,8 +14,10 @@ COPY . .
 
 RUN ls -la /opt/app-root/src
 RUN ls -la /opt/app-root/src/.meteor
+
 RUN echo $PATH
-RUN echo PATH
+RUN chmod -R 700 /opt/app-root/src/.meteor
+
 RUN which meteor
 
 RUN meteor npm install
