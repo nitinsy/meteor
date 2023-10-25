@@ -18,7 +18,7 @@ RUN ls -la /opt/app-root/src
 RUN ls -la /opt/app-root/src/.meteor
 
 RUN echo $PATH
-RUN chmod -R 700 /opt/app-root/src/.meteor
+RUN chown -R default:0 /opt/app-root/src
 
 RUN whoami
 RUN which meteor
