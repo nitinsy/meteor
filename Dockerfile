@@ -21,7 +21,7 @@ RUN ls -la /opt/app-root/src/app/.meteor
 RUN meteor npm install
 
 USER root
-RUN chmod -R 775 /opt/app-root/src/app/.meteor/local
+RUN chmod -R 775 /opt/app-root/src/app/.meteor
 USER default
 
 RUN ls -la /opt/app-root/src/app/.meteor
