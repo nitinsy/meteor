@@ -16,8 +16,13 @@ COPY . .
 COPY --chown=default:0 --chmod=775 . .
 
 RUN ls -la /opt/app-root/src/app
+RUN ls -la /opt/app-root/src/app/.meteor
 
 RUN meteor npm install
+
+USER root
+RUN chmod 775 /opt/app-root/src/app/.meteor/local
+USER default
 
 RUN ls -la /opt/app-root/src/app/.meteor
 RUN ls -la /opt/app-root/src/app/.meteor/local
