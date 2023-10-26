@@ -26,6 +26,7 @@ USER default
 
 RUN ls -la /opt/app-root/src/app/.meteor
 RUN ls -la /opt/app-root/src/app/.meteor/local
+RUN ls -la /opt/app-root/src/app/.meteor/packages
 
 EXPOSE 3000
 CMD ["npm", "start"]
