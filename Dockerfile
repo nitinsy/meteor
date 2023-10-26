@@ -13,7 +13,7 @@ RUN pwd
 
 RUN ls -la /opt/app-root/src/app
 
-COPY . .
+COPY --chown=default:0 . .
 
 RUN ls -la /opt/app-root/src/app
 RUN ls -la /opt/app-root/src/app/.meteor
