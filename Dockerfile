@@ -13,11 +13,14 @@ RUN ls -la /opt/app-root/src/.meteor/packages
 WORKDIR /opt/app-root/src/app
 RUN pwd
 COPY . .
-COPY --chown=default:0 . .
+COPY --chown=default:0 --chmod=775 . .
 
 RUN ls -la /opt/app-root/src/app
 
 RUN meteor npm install
+
+RUN ls -la /opt/app-root/src/app/.meteor
+RUN ls -la /opt/app-root/src/app/.meteor/local
 
 EXPOSE 3000
 CMD ["npm", "start"]
