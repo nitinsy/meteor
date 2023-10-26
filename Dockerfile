@@ -13,7 +13,7 @@ RUN ls -la /opt/app-root/src/.meteor/packages
 WORKDIR /opt/app-root/src/app
 RUN pwd
 COPY . .
-COPY --chown=default:0 --chmod=775 . .
+COPY --chown=default:0 . .
 
 RUN ls -la /opt/app-root/src/app
 RUN ls -la /opt/app-root/src/app/.meteor
@@ -21,7 +21,7 @@ RUN ls -la /opt/app-root/src/app/.meteor
 RUN meteor npm install
 
 USER root
-RUN chmod -R 775 /opt/app-root/src/app/.meteor
+RUN chmod -R 777 /opt/app-root/src/app/.meteor
 USER default
 
 RUN ls -la /opt/app-root/src/app/.meteor
