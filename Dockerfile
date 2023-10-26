@@ -3,14 +3,18 @@ FROM registry.access.redhat.com/ubi8/nodejs-14:latest
 #ENV METEOR_ALLOW_SUPERUSER=true
 ENV PATH=$PATH:$HOME/.meteor
 
+USER default
+
 RUN curl "https://install.meteor.com/" | sh
 
-USER default
 WORKDIR /opt/app-root/src/app
 RUN whoami
 RUN pwd
 
-COPY . .
+RUN ls -la /opt/app-root/src/app
+RUN ls -la /opt/app-root/src/app/.meteor
+
+COPY --chown=default:0 . .
 
 RUN ls -la /opt/app-root/src/app
 RUN ls -la /opt/app-root/src/app/.meteor
