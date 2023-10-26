@@ -12,7 +12,6 @@ RUN whoami
 RUN pwd
 
 RUN ls -la /opt/app-root/src/app
-RUN ls -la /opt/app-root/src/app/.meteor
 
 COPY --chown=default:0 . .
 
